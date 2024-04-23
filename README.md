@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Tip & Bill Calculator 📋 🧮 💸
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Summary: 📝
 
-Currently, two official plugins are available:
+https://tip-and-bill-calculator.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project based on a tip and consumption calculator.
+We can see a menu with different products and their prices that we can add or remove from our shopping cart.
+In addition we can add different percentages of tips to the products that we have added and we obtain the result of the total price of the selected products, the total sum of the tips and the total to pay.
+Finally, we have a save order button that allows us to reset the shopping cart for the moment. Subsequently the information will be saved on a server to keep track of sales.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Technology Stack 💻
+The application has been made from scratch with React using Vite and a custom hook that allows to separate the application logic and have cleaner components. We have also used useMemo that lets you cache the result of a calculation between re-renders.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+<ul>
+  <li>React</li>
+  <li>CustomHook</li>
+  <li>Typescript</li>
+  <li>Git</li>
+  <li>Vite</li>
+  <li>Tailwind</li>
+</ul>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Instructions ✍
+
+### How to run: 
+
+<pre>
+    <p>npm install <br></p>
+    <p>npm run dev <br></p>
+    
+</pre>
