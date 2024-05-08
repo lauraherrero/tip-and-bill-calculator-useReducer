@@ -1,3 +1,6 @@
+import { Dispatch } from "react"
+import { OrderActions } from "../reducers/oderReducer"
+
 export type MenuItem = {
   id: number
   name: string
@@ -10,16 +13,17 @@ export type OrderItem = MenuItem & {
 
 export type OrderItemProps = {
   order: OrderItem[],
-  removeItem: (id: MenuItem['id']) => void,
+  dispatch: Dispatch<OrderActions>
 }
 
 export type OrderItemTotalProps = {
   order: OrderItem[],
   tip: number,
-  saveOrder: () => void
+  dispatch: Dispatch<OrderActions>
 }
 
 export type TipPercentageFormProps = {
   tip: number,
-  setTip: React.Dispatch<React.SetStateAction<number>>
+  //setTip: React.Dispatch<React.SetStateAction<number>>
+  dispatch: Dispatch<OrderActions>
 }

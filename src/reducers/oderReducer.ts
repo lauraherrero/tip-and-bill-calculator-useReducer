@@ -38,22 +38,28 @@ export const orderReducer = (state: OrderState = initialState, action: OrderActi
 
     return {
       ...state,
-      updatedOrder
+      order: updatedOrder
     }
   }
   if(action.type === 'REMOVE_ITEM') {
+    const updatedOrder = state.order.filter(item => item.id !== action.payload.id);
     return {
-      ...state
+      ...state,
+      order: updatedOrder
     }
   }
   if(action.type === 'SAVE_ORDER') {
     return {
-      ...state
+      ...state,
+      order: [],
+      tip: 0
     }
   }
   if(action.type === 'SET_TIP') {
+    const tip = action.payload.value;
     return {
       ...state,
+      tip
     }
   }
   return state;
