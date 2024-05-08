@@ -1,13 +1,17 @@
+import { useReducer } from "react";
 import MenuItem from "./components/MenuItem";
 import { OrderContents } from "./components/OrderContents";
 import { OrderTotals } from "./components/OrderTotals";
 import { TipPercentageForm } from "./components/TipPercentageForm";
 import { menuItems } from "./data/db";
 import useOrder from "./hooks/useOrder";
+import { initialState, orderReducer } from "./reducers/oderReducer";
 
 function App() {
 
-  const { addItem, order, tip, setTip, removeItem, saveOrder } = useOrder();
+  const { order, tip, setTip, removeItem, saveOrder } = useOrder();
+
+  const [state, dispatch] = useReducer(orderReducer, initialState);
 
   return (
     <>
@@ -19,16 +23,16 @@ function App() {
           <h2 className="text-4xl font-black">Menú</h2>
           <div className="space-y-3 mt-">
             {menuItems.map(item => (
-              <MenuItem key={item.id} item={item} addItem={addItem} />
+              <MenuItem key={item.id} item={item} dispatch={dispatch} />
             ))}
           </div>
         </div>
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
           {order.length > 0 ? (
             <>
-              <OrderContents order={order} removeItem={removeItem} />
-              <TipPercentageForm tip={tip} setTip={setTip} />
-              <OrderTotals tip={tip} order={order} saveOrder={saveOrder} />
+              <OrderContents order={state.order} removeItem={removeItem} />
+              <TipPercentageForm tip={state.tip} setTip={setTip} />
+              <OrderTotals tip={state.tip} order={state.order} saveOrder={saveOrder} />
 
             </>
           ) : (
